@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://example.com/img/pic/image-koopman-1.png">
 <meta property="og:image" content="http://example.com/img/pic/image-koopman-2.png">
 <meta property="article:published_time" content="2023-04-23T07:55:49.904Z">
-<meta property="article:modified_time" content="2023-04-23T10:04:10.118Z">
+<meta property="article:modified_time" content="2023-04-27T10:40:07.615Z">
 <meta property="article:author" content="Fanshan">
 <meta property="article:tag" content="Koopman theory">
 <meta property="article:tag" content="Parameterization method">
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.3k 字
+          6.2k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          53 分钟
+          52 分钟
         
       </span>
     
@@ -303,8 +303,8 @@
 <p>上图是针对一个特征值是实数的情况，如果特征值是复数，那么我们可以看到相空间中的levelset和lypunov函数一样，一圈一圈的围住不动点</p>
 <p><img src="/img/pic/image-koopman-2.png" srcset="/img/loading.gif" lazyload alt="image-koopman-2"></p>
 <p> 这类levelset也被称作<em>isostables</em>,这在后面的文献也会解释。</p>
-<h3 id="4-Koopman-mode-decomposition"><a href="#4-Koopman-mode-decomposition" class="headerlink" title="4. Koopman mode decomposition"></a>4. Koopman mode decomposition</h3><p>对于一个向量的观测函数<br>$$<br>\begin{aligned}<br>g(x)&#x3D;\left[<br>    \begin{array}<br>    {[c]}<br>    g_{1} \<br>    g_{2} \<br>    \vdots&amp;\<br>    g_{p}<br>    \end{array}\right]<br>\end{aligned}<br>$$<br>对于每一个独立的观测函数，都可以用特征函数来线性表示<br>$$<br>g_{i}(x)&#x3D;\sum^{\infty}<em>{j&#x3D;1}v</em>{ij}\varphi_{j}(x)<br>$$<br>也可以写成<br>$$<br>\begin{aligned}<br>g(x)&#x3D;\left[<br>    \begin{array}<br>    {[c]}<br>    g_{1} \<br>    g_{2}\<br>    \vdots\<br>    g_{p}<br>    \end{array}\right]<br>    &#x3D;\sum^{\infty}_{j&#x3D;1}\varphi_j(x)v_j<br>\end{aligned}<br>$$<br>这里的$v_j$就代表了j-th 的Koopman mode,其对应着特征函数$\varphi_j$.同时由于特征函数构建了连续系统的正交基，我可以通过正交来计算相应的mode<br>$$<br>v_j&#x3D;\left[<br>    \begin{array}<br>    {[c]}<br>    &lt;\varphi_j,g_{1}&gt; \<br>    &lt;\varphi_j,g_{2}&gt;\<br>    \vdots\<br>    &lt;\varphi_j,g_{p}&gt;<br>    \end{array}\right]<br>$$</p>
-<h3 id="5-A-example-of-Koopman-embedding"><a href="#5-A-example-of-Koopman-embedding" class="headerlink" title="5. A example of Koopman embedding"></a>5. A example of Koopman embedding</h3><p>我们考虑一个动力系统<br>$$<br>\begin{align}<br>\dot{x}_1 &amp;&#x3D; \mu x_1 \<br>\dot{x}_2 &amp;&#x3D; \lambda(x_2-x^{2}_1)<br>\end{align}<br>$$<br>这里只需要将$x^2_1$设成一个观测函数，就可以很好的构成一个线性的三维Koopman空间<br>$$<br>\frac{d}{dt}\left[\begin{array}<br>{[c]}<br>y_1 \<br>y_2 \<br>y_3<br>\end{array}\right]&#x3D;\begin{bmatrix}<br>\mu &amp;0 &amp;0\<br>0   &amp;\lambda &amp;-\lambda \<br>0   &amp;0  &amp;2\mu<br>\end{bmatrix}\left[\begin{array}<br>{[c]}<br>y_1 \<br>y_2 \<br>y_3<br>\end{array}\right]<br>$$<br>据此，我们可以求得这个线性算子的特征向量和特征值。根据理论求得线性系统的系数矩阵的左特征向量,再与变换后的坐标内积，即为Koopman算子的特征函数。观察矩阵，我们可以看出是一个分块对角矩阵，明显的得出一个特征值为$\mu$,另外一个特征值$\lambda$可以通过解另外一个对角块<br>$$<br>\left|\begin{bmatrix}<br>\lambda &amp;-\lambda\<br>0       &amp;2\mu<br>\end{bmatrix}-kI\right|&#x3D;0<br>$$<br>对于特征函数，将特征值代入等式，再求解线性方程，得到左特征向量(这和右特征值不一样)。再将其和$[y_1<del>y_2</del>y_3]^T$内积，可以得到特征函数<br>$$<br>\varphi_\mu&#x3D;x_1,<del>\varphi_\lambda&#x3D;x_2-bx^2_1,</del>b&#x3D;\frac{\lambda}{\lambda-2\mu}<br>$$<br>可以通过这个例子验证前面的性质<br>$$<br>\frac{d}{dt}\varphi_\mu&#x3D;\mu\varphi_\mu,~\frac{d}{dt}\varphi_\lambda&#x3D;\lambda\varphi_\lambda<br>$$</p>
+<h3 id="4-Koopman-mode-decomposition"><a href="#4-Koopman-mode-decomposition" class="headerlink" title="4. Koopman mode decomposition"></a>4. Koopman mode decomposition</h3><p>对于一个向量的观测函数<br>$$<br>\begin{aligned}<br>g(x)&#x3D;\left[<br>    \begin{array}<br>    {[c]}<br>    g_{1} \\<br>    g_{2} \\<br>    \vdots&amp;\\<br>    g_{p}<br>    \end{array}\right]<br>\end{aligned}<br>$$<br>对于每一个独立的观测函数，都可以用特征函数来线性表示<br>$$<br>\begin{aligned}<br>g(x)&#x3D;\left[<br>    \begin{array}<br>    {[c]}<br>    g_{1} \\<br>    g_{2}\\<br>    \vdots\\<br>    g_{p}<br>    \end{array}\right]<br>    &#x3D;\sum^{\infty}_{j&#x3D;1}\varphi_j(x)v_j<br>\end{aligned}<br>$$<br>这里的$v_j$就代表了$j-th$ 的Koopman mode,其对应着特征函数$\varphi_j$.同时由于特征函数构建了连续系统的正交基，我可以通过正交来计算相应的mode<br>$$<br>\begin{aligned}<br>v_j&#x3D;\left[<br>    \begin{array}<br>    {[c]}<br>    &lt;\varphi_j,g_{1}&gt; \\<br>    &lt;\varphi_j,g_{2}&gt;\\<br>    \vdots\\<br>    &lt;\varphi_j,g_{p}&gt;<br>    \end{array}\right]<br>    \end{aligned}<br>$$</p>
+<h3 id="5-A-example-of-Koopman-embedding"><a href="#5-A-example-of-Koopman-embedding" class="headerlink" title="5. A example of Koopman embedding"></a>5. A example of Koopman embedding</h3><p>我们考虑一个动力系统<br>$$<br>\begin{align}<br>\dot{x}_1 &amp;&#x3D; \mu x_1 \<br>\dot{x}_2 &amp;&#x3D; \lambda(x_2-x^{2}_1)<br>\end{align}<br>$$<br>这里只需要将$x^2_1$设成一个观测函数，就可以很好的构成一个线性的三维Koopman空间<br>$$<br>\frac{d}{dt}\left[\begin{array}<br>{[c]}<br>y_1 \\<br>y_2 \\<br>y_3<br>\end{array}\right]&#x3D;\begin{bmatrix}<br>\mu &amp;0 &amp;0\\<br>0   &amp;\lambda &amp;-\lambda \\<br>0   &amp;0  &amp;2\mu<br>\end{bmatrix}\left[\begin{array}<br>{[c]}<br>y_1 \\<br>y_2 \\<br>y_3<br>\end{array}\right]<br>$$<br>据此，我们可以求得这个线性算子的特征向量和特征值。根据理论求得线性系统的系数矩阵的左特征向量,再与变换后的坐标内积，即为Koopman算子的特征函数。观察矩阵，我们可以看出是一个分块对角矩阵，明显的得出一个特征值为$\mu$,另外一个特征值$\lambda$可以通过解另外一个对角块<br>$$<br>\left|\begin{bmatrix}<br>\lambda &amp;-\lambda\\<br>0       &amp;2\mu<br>\end{bmatrix}-kI\right|&#x3D;0<br>$$<br>对于特征函数，将特征值代入等式，再求解线性方程，得到左特征向量(这和右特征值不一样)。再将其和$[y_1,y_2,y_3]^T$内积，可以得到特征函数<br>$$<br>\varphi_\mu&#x3D;x_1,\varphi_\lambda&#x3D;x_2-bx^2_1,b&#x3D;\frac{\lambda}{\lambda-2\mu}<br>$$<br>可以通过这个例子验证前面的性质<br>$$<br>\frac{d}{dt}\varphi_\mu&#x3D;\mu\varphi_\mu,\frac{d}{dt}\varphi_\lambda&#x3D;\lambda\varphi_\lambda<br>$$</p>
 <h2 id="Some-thinking-for-references"><a href="#Some-thinking-for-references" class="headerlink" title="Some thinking for references"></a>Some thinking for references</h2><p>针对Koopman在动力系统里面的文献太过于繁杂了，对于其的应用逻辑还不是很了解。比如一些文献分析线性化，那么怎么线性化的最终目的是什么，产生的结果是什么，和NFP(Normal form方法)又有什么区别，这是一个很奇怪的东西。</p>
 <h3 id="1-A-spectral-characterization-of-nonlinear-normal-modes"><a href="#1-A-spectral-characterization-of-nonlinear-normal-modes" class="headerlink" title="1. A spectral characterization of nonlinear normal modes"></a>1. A spectral characterization of nonlinear normal modes</h3><p> 这篇文献的主要目的是为了介绍从Koopman的框架怎么到非线性模态的内容。从这个角度来看，确实存在一些很隐晦的联系在现在的降阶方法和Koopman理论之间。在文章中，作者将非线性模态和Koopman算子的特征函数的零level-set联系到一起。说明实际上是可以从Koopman理论的框架转移到不变流形的求解上。</p>
 <p>具体内容不赘述，但是值得一提的这里将Identity function的特征展开表达为<br>$$<br>id(x)&#x3D;x&#x3D;\sum_{(k_1,\dots,k_n)\in N^n}v_{k_1,\dots,k_n}\xi^{k_1}_1\dots\xi^{k_n}_n<br>$$<br>这里让$\xi_k&#x3D;s_k(x)$,代表让特征函数代表一个新的坐标，表示最初的坐标和被特征函数定义的新的坐标系统之间的转换（这个意义和参数化中降阶的对应的概念还没有想好）。但是特征函数满足<br>$$<br>\dot{s_k}(x)&#x3D;\lambda_k s_k(x),~\dot{\xi_k}&#x3D;\lambda_k \xi_k<br>$$<br>这不就是和采用normal form style的方法不谋而合了吗？然而和文章中强调的可以跨越fold，这也印证了这个想法。如果是这样的，那么很失望，因为对我们最初的问题可能没有什么帮助。</p>
