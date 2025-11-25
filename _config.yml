@@ -117,7 +117,7 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Research assistant@ASU"
   location         : "Arizona"
-  email            :
+  email            : "superfshan@outlook.com"
   links:
     - label: "Email"
       icon: "superfshan@outlook.com"
